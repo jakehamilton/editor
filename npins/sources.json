@@ -1,0 +1,89 @@
+{
+  "pins": {
+    "gift-wrap": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "tgirlcloud",
+        "repo": "gift-wrap"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6b87008fe1aeca64738b69c6e37fb43caa85dab2",
+      "url": "https://github.com/tgirlcloud/gift-wrap/archive/6b87008fe1aeca64738b69c6e37fb43caa85dab2.tar.gz",
+      "hash": "sha256-B0og+vIax+zPutvST/6n96skJW/p2Xx07WM27ThsybE="
+    },
+    "nilla": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nilla"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "2e98ae315a592ad6b6de44670514c048dcc88dc7",
+      "url": "https://github.com/nilla-nix/nilla/archive/2e98ae315a592ad6b6de44670514c048dcc88dc7.tar.gz",
+      "hash": "sha256-15lwhWcMonJH6UholMMHDc+p2BoSpGA4AYGrsXQA9Do="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixos-unstable",
+      "url": "https://releases.nixos.org/nixos/unstable/nixos-25.11pre886100.08dacfca559e/nixexprs.tar.xz",
+      "hash": "sha256-PKG8NzUgzoac3iAe12zo2EjcXJTAPWE+2dh0+t35J4M="
+    },
+    "plugin-evergarden": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "isabelroses",
+        "repo": "evergarden"
+      },
+      "branch": "mega",
+      "submodules": false,
+      "revision": "be3527f111aaceecef08d12682d62ab5263d92c7",
+      "url": "https://github.com/isabelroses/evergarden/archive/be3527f111aaceecef08d12682d62ab5263d92c7.tar.gz",
+      "hash": "sha256-8BFTBYHVtEl1rtaLCEmSCqGrFsEyd5P2N5ujEaFW9Bk="
+    },
+    "plugin-none-ls": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nvimtools",
+        "repo": "none-ls.nvim"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "a96172f673f720cd4f3572e1fcd08400ed3eb25d",
+      "url": "https://github.com/nvimtools/none-ls.nvim/archive/a96172f673f720cd4f3572e1fcd08400ed3eb25d.tar.gz",
+      "hash": "sha256-qIl1V/D1QNJM2QhTX869tyTjbQ0a3KYjYPfDx9pCTb8="
+    },
+    "plugin-nvim-ufo": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kevinhwang91",
+        "repo": "nvim-ufo"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "72d54c31079d38d8dfc5456131b1d0fb5c0264b0",
+      "url": "https://github.com/kevinhwang91/nvim-ufo/archive/72d54c31079d38d8dfc5456131b1d0fb5c0264b0.tar.gz",
+      "hash": "sha256-VMa09rdDpaiRgD5ORDBjOtqcHTV+czfUY3hCmP9y3e4="
+    },
+    "plugin-refactoring-nvim": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ThePrimeagen",
+        "repo": "refactoring.nvim"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "6784b54587e6d8a6b9ea199318512170ffb9e418",
+      "url": "https://github.com/ThePrimeagen/refactoring.nvim/archive/6784b54587e6d8a6b9ea199318512170ffb9e418.tar.gz",
+      "hash": "sha256-KFn1f0Va6eFbeOYxc40lN1iWL8WAwnm/H5l46o4JgvI="
+    }
+  },
+  "version": 7
+}

@@ -57,7 +57,7 @@
        {:Normal {:fg colors.text :bg colors.surface}
         :NormalNC {:fg colors.text :bg colors.surface}
         :NormalSB {:fg colors.text :bg colors.surface-darker}
-				:StatusLine {:bg colors.surface-darkest}
+        :StatusLine {:fg colors.text :bg colors.surface-darker}
         :LineNr {:fg colors.text}
         :CursorLineNr {:fg colors.text :bg colors.surface-light}
         :CursorLine {:bg colors.surface-light}
@@ -132,8 +132,8 @@
         :DiagnosticInfo {:fg colors.text}
         :DiagnosticHint {:fg colors.text}
         :DiagnosticOk {:fg colors.mint}
-				:DiffAdd {:fg colors.mint-dark :bg colors.mint-light}
-				:DiffChange {:fg colors.peach-dark :bg colors.peach-light}
+        :DiffAdd {:fg colors.mint-dark :bg colors.mint-light}
+        :DiffChange {:fg colors.peach-dark :bg colors.peach-light}
         ; nvim-notify
         :NotifyERRORBorder {:fg colors.berry}
         :NotifyERRORIcon {:fg colors.berry}
@@ -192,15 +192,15 @@
         :NvimTreeFolderSymlink {:fg colors.mint}
         :NvimTreeEmptyFolderName {:fg colors.text-dark}
         :NvimTreeOpenedFolderName {:fg colors.text}
-				:NvimTreeOpenedFolderIcon {:fg colors.sakura}
+        :NvimTreeOpenedFolderIcon {:fg colors.sakura}
         :NvimTreeSymlinkFolderName {:fg colors.text}
         :NvimTreeFileIcon {:fg colors.sakura}
         :NvimTreeSymlinkIcon {:fg colors.mint}
         :NvimTreeGitIgnoredIcon {:fg colors.text-dark}
         :NvimTreeGitIgnored {:fg colors.text-dark}
-				:NvimTreeGitStagedIcon {:fg colors.mint}
-				:NvimTreeModifiedIcon {:fg colors.peach}
-				:NvimTreeGitDeletedIcon {:fg colors.sakura}
+        :NvimTreeGitStagedIcon {:fg colors.mint}
+        :NvimTreeModifiedIcon {:fg colors.peach}
+        :NvimTreeGitDeletedIcon {:fg colors.sakura}
         ; mini.icons
         :MiniIconsAzure {:fg colors.text}
         :MiniIconsBlue {:fg colors.text}
@@ -211,25 +211,24 @@
         :MiniIconsPurple {:fg colors.text}
         :MiniIconsRed {:fg colors.text}
         :MiniIconsYellow {:fg colors.text}
-				; GitSigns
-				:GitSignsAdd {:fg colors.mint}
-				:GitSignsChange {:fg colors.peach}
-				:GitSignsDelete {:fg colors.sakura}
-				:GitSignsUntracked {:fg colors.text-dark}
-				; rainbow-delimiters.nvim
-				:RainbowDelimiterText {:fg colors.text}
-				:RainbowDelimiterSakura {:fg colors.sakura}
-				:RainbowDelimiterPeach {:fg colors.peach}
-				:RainbowDelimiterBerry {:fg colors.berry}
-				:RainbowDelimiterMint {:fg colors.mint}
-				:RainbowDelimiterSky {:fg colors.sky}
+        ; GitSigns
+        :GitSignsAdd {:fg colors.mint}
+        :GitSignsChange {:fg colors.peach}
+        :GitSignsDelete {:fg colors.sakura}
+        :GitSignsUntracked {:fg colors.text-dark}
+        ; rainbow-delimiters.nvim
+        :RainbowDelimiterText {:fg colors.text}
+        :RainbowDelimiterSakura {:fg colors.sakura}
+        :RainbowDelimiterPeach {:fg colors.peach}
+        :RainbowDelimiterBerry {:fg colors.berry}
+        :RainbowDelimiterMint {:fg colors.mint}
+        :RainbowDelimiterSky {:fg colors.sky}
         ; Nix
         :nixArgumentEllipsis {:fg colors.text-dark}
         ; TypeScript
         :typescriptArrowFunc {:fg colors.text}
         :typescriptDocRef {:fg colors.sakura :underline true}
-				"@keyword.directive.typescript" {:fg colors.mint}
-				})
+        "@keyword.directive.typescript" {:fg colors.mint}})
 
 (fn highlight [name color]
   (when (= nil color.fg) (tset color :fg colors.none))
@@ -245,14 +244,10 @@
   (vim-option :termguicolors true)
   (each [name color (pairs highlights)]
     (highlight name color))
-	(vim.diagnostic.config
-		{:signs {:text {
-			vim.diagnostic.severity.ERROR :
-			vim.diagnostic.severity.WARN :
-			vim.diagnostic.severity.HINT :
-			vim.diagnostic.severity.INFO :
-		}}})
-	)
+  (vim.diagnostic.config {:signs {:text {vim.diagnostic.severity.ERROR ""
+                                         vim.diagnostic.severity.WARN ""
+                                         vim.diagnostic.severity.HINT ""
+                                         vim.diagnostic.severity.INFO ""}}}))
 
 (set _G.colors colors)
 

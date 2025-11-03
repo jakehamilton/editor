@@ -72,9 +72,9 @@
                   {:on_attach (lambda [client bufnr]
                                 (when (not= nil on_attach)
                                   (on_attach client bufnr)
-																	(vim.api.nvim_create_autocmd :BufWritePre
-																															 {:buffer bufnr
-																															 :command :LspEslintFixAll})))})
+                                  (vim.api.nvim_create_autocmd :BufWritePre
+                                                               {:buffer bufnr
+                                                                :command :LspEslintFixAll})))})
   (vim.lsp.enable :eslint))
 
 (vim.api.nvim_create_autocmd :LspAttach
@@ -95,19 +95,16 @@
                                                     vim.lsp.inline_completion.select
                                                     {:mode :i
                                                      :desc "Switch Completion"}))
-																					; Handle formatting
-																					(when (and (not (client:supports_method :textDocument/willSaveWaitUntil bufnr))
-																										 (client:supports_method :textDocument/formatting bufnr))
-																						(vim.api.nvim_create_autocmd :BufWritePre
-																																				 {
-																																				 :group (vim.api.nvim_create_augroup :bliss.lsp {:clear false})
-																																				 :buffer bufnr
-																																				 :callback (lambda []
-																																										 (vim.lsp.buf.format {
-																																																				 : bufnr
-																																																				 :id client.id
-																																																				 :timeout_ms 1000
-																																																				 }))
-																																				 })
-																						)
-																					)})
+                                          ; Handle formatting
+                                          (when (and (not (client:supports_method :textDocument/willSaveWaitUntil
+                                                                                  bufnr))
+                                                     (client:supports_method :textDocument/formatting
+                                                                             bufnr))
+                                            (vim.api.nvim_create_autocmd :BufWritePre
+                                                                         {:group (vim.api.nvim_create_augroup :bliss.lsp
+                                                                                                              {:clear false})
+                                                                          :buffer bufnr
+                                                                          :callback (lambda []
+                                                                                      (vim.lsp.buf.format {: bufnr
+                                                                                                           :id client.id
+                                                                                                           :timeout_ms 1000}))})))})

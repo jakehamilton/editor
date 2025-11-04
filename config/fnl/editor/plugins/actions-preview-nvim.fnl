@@ -3,4 +3,4 @@
 
 (actions-preview.setup)
 
-(keymap :pa actions-preview.code_actions {:desc "Code Actions"})
+(keymap :<leader>pa actions-preview.code_actions {:desc "Code Actions"})

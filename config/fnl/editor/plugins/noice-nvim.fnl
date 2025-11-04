@@ -15,11 +15,12 @@
                                        {:find :written}]}
                         :opts {:skip true}}
                        {:filter {:event :msg_show
-                                 :any [{:find :search_count}
+                                 :any [{:find "E486: Pattern not found:"}
+                                       {:find :search_count}
                                        {:find "search hit"}
                                        {:find "%[%d+/%d+%]"}]}
                         :opts {:skip true}}
-                       {:filter {:event :msg_show
+                       {:filter {:event :notify
                                  :any [{:find "No information available"}]}
                         :opts {:skip true}}]})
                        

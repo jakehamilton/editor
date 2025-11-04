@@ -26,6 +26,14 @@
             (keymap-handler key ?handler)))))
 
 (fn setup []
+	(keymap :<leader>b nil {:group :Buffer})
+	(keymap :<leader>r nil {:group :Refactor})
+	(keymap :<leader>c nil {:group :Close})
+	(keymap :<leader>g nil {:group :Go})
+	(keymap :<leader>h nil {:group :Hunk})
+	(keymap :<leader>p nil {:group :Pick})
+	(keymap :<leader>t nil {:group :Toggle})
+	(keymap :<leader>t nil {:group :Find})
   (keymap :<leader>q :<cmd>wqa<cr> {:desc "Save & Quit"})
   (keymap :<leader>Q :<cmd>qa!<cr> {:desc :Quit})
   (keymap :<leader>w :<cmd>w<cr> {:desc :Save})

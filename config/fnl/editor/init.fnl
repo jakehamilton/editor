@@ -3,6 +3,8 @@
 (import :editor.plugins.noice-nvim)
 (import :editor.plugins.mini-icons)
 (import :editor.plugins.gitsigns)
+(import :editor.plugins.nvim-autopairs)
+(import :editor.plugins.cmp-nvim)
 (import :editor.plugins.which-key)
 (import :editor.plugins.nvim-ufo)
 (import :editor.plugins.nvim-tree)
@@ -14,6 +16,8 @@
 (import :editor.plugins.neoscroll-nvim)
 (import :editor.plugins.comment-nvim)
 (import :editor.plugins.rainbow-delimiters)
+(import :editor.plugins.telescope-nvim)
+(import :editor.plugins.actions-preview-nvim)
 
 (import :editor.theme (setup :as setup-theme))
 (import :editor.keys (setup :as setup-keys))

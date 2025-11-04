@@ -7,6 +7,7 @@
                              ; handling the coloring of tabs and separators how I want.
                              ; Instead no separator is used.
                              :separator_style ["" ""]
+														 :indicator {:icon ">"}
                              :enforce_regular_tabs true
                              :close_icon ""
                              :buffer_close_icon ""
@@ -39,42 +40,42 @@
                    ; for my usage? If so, the entries with `colors.sky` set can
                    ; be removed.
                    :highlights {:fill {:fg colors.surface
-                                       :bg colors.surface-darkest}
+                                       :bg colors.surface}
                                 :background {:fg colors.text
-                                             :bg colors.surface-lighter}
+                                             :bg colors.surface}
                                 :tab {:fg colors.text
-                                      :bg colors.surface-lighter}
-                                :tab_selected {:fg colors.text
-                                               :bg colors.sakura}
+                                      :bg colors.surface}
+                                :tab_selected {:fg colors.sakura
+                                               :bg colors.surface}
                                 :tab_separator {:fg colors.sky :bg colors.sky}
                                 :tab_separator_selected {:fg colors.sky
                                                          :bg colors.sky}
-                                :tab_close {:fg colors.surface-lighter
-                                            :bg colors.surface-lighter}
-                                :separator {:fg colors.surface-lighter
+                                :tab_close {:fg colors.surface
+                                            :bg colors.surface}
+                                :separator {:fg colors.surface
                                             :bg colors.none}
-                                :separator_selected {:fg colors.sakura
+                                :separator_selected {:fg colors.surface
                                                      :bg colors.none}
-                                :separator_visible {:fg colors.surface-lighter
+                                :separator_visible {:fg colors.surface
                                                     :bg colors.none}
-                                :close_button {:fg colors.surface-lighter
-                                               :bg colors.surface-lighter}
-                                :close_button_visible {:fg colors.surface-lighter
-                                                       :bg colors.surface-lighter}
-                                :close_button_selected {:fg colors.sakura
-                                                        :bg colors.sakura}
+                                :close_button {:fg colors.surface
+                                               :bg colors.surface}
+                                :close_button_visible {:fg colors.surface
+                                                       :bg colors.surface}
+                                :close_button_selected {:fg colors.surface
+                                                        :bg colors.surface}
                                 :buffer {:fg colors.text
-                                         :bg colors.surface-lighter}
+                                         :bg colors.surface}
                                 :buffer_visible {:fg colors.text
-                                                 :bg colors.surface-lighter}
+                                                 :bg colors.surface}
                                 :buffer_selected {:fg colors.text
-                                                  :bg colors.sakura}
+                                                  :bg colors.surface}
                                 :numbers {:fg colors.text
-                                          :bg colors.surface-lighter}
+                                          :bg colors.surface}
                                 :numbers_visible {:fg colors.text
-                                                  :bg colors.surface-lighter}
+                                                  :bg colors.surface}
                                 :numbers_selected {:fg colors.text
-                                                   :bg colors.sakura}
+                                                   :bg colors.surface}
                                 :diagnostic {:fg colors.sky :bg colors.sky}
                                 :diagnostic_visible {:fg colors.sky
                                                      :bg colors.sky}
@@ -118,29 +119,29 @@
                                                            :bg colors.sky}
                                 :error_diagnostic_selected {:fg colors.sky
                                                             :bg colors.sky}
-                                :modified {:fg colors.sky :bg colors.sky}
-                                :modified_visible {:fg colors.sky
-                                                   :bg colors.sky}
-                                :modified_selected {:fg colors.sky
-                                                    :bg colors.sky}
-                                :duplicate {:fg colors.sky :bg colors.sky}
-                                :duplicate_selected {:fg colors.sky
-                                                     :bg colors.sky}
-                                :duplicate_visible {:fg colors.sky
-                                                    :bg colors.sky}
-                                :indicator_visible {:fg colors.surface-lighter
-                                                    :bg colors.surface-lighter}
+                                :modified {:fg colors.text :bg colors.surface}
+                                :modified_visible {:fg colors.text
+                                                   :bg colors.surface}
+                                :modified_selected {:fg colors.text
+                                                    :bg colors.surface}
+                                :duplicate {:fg colors.text :bg colors.surface}
+                                :duplicate_selected {:fg colors.text
+                                                     :bg colors.surface}
+                                :duplicate_visible {:fg colors.text
+                                                    :bg colors.surface}
+                                :indicator_visible {:fg colors.text
+                                                    :bg colors.surface}
                                 :indicator_selected {:fg colors.sakura
-                                                     :bg colors.sakura}
+                                                     :bg colors.surface}
                                 :pick {:fg colors.text
-                                       :bg colors.surface-lighter}
+                                       :bg colors.surface}
                                 :pick_selected {:fg colors.text
-                                                :bg colors.sakura}
+                                                :bg colors.surface}
                                 :pick_visible {:fg colors.text
-                                               :bg colors.surface-lighter}
+                                               :bg colors.surface}
                                 :offset_separator {:fg colors.surface-lightest
                                                    :bg colors.surface}
-                                :trunc_marker {:fg colors.sky :bg colors.sky}}})
+                                :trunc_marker {:fg colors.text :bg colors.surface}}})
 
 (keymap :<leader>bn :<cmd>BufferLineCycleNext<cr> {:desc "Next Buffer"})
 (keymap :<leader>bp :<cmd>BufferLineCyclePrev<cr> {:desc "Previous Buffer"})

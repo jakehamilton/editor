@@ -110,6 +110,8 @@
 
           # Search UI
           telescope-nvim
+          # Fuzzy find in Telescope
+          telescope-fzf-native-nvim
 
           # Easy commenting
           comment-nvim
@@ -119,6 +121,31 @@
 
           # Colored parenthesis & brackets
           rainbow-delimiters-nvim
+
+          # Icon searching
+          nerdy-nvim
+
+          # Snippets
+          luasnip
+
+          # Completion
+          nvim-cmp
+          cmp-nvim-lsp
+          cmp-fuzzy-buffer
+          cmp-fuzzy-path
+          cmp-cmdline
+          cmp-cmdline-history
+          cmp-dictionary
+          cmp_luasnip
+
+          # Auto closing parenthesis & brackets
+          nvim-autopairs
+
+          # Preview code actions
+          actions-preview-nvim
+
+          # LSP virtual text
+          lsp_lines-nvim
         ]);
 
         optPlugins = (with plugins; [
@@ -194,8 +221,14 @@
           # Copilot
           copilot-language-server
 
-          # Miscellaneous
+          # Frontend
           vscode-langservers-extracted
+
+          # File searching
+          ripgrep
+
+          # Needed by fuzzy_path
+          fd
         ];
 
         extraInitLua = ''

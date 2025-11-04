@@ -50,8 +50,7 @@
                :sky-dark "#88B0D8"
                :white "#FFFFFF"
                :black "#000000"
-               :none :none
-               :transparent "#FFFFFF00"})
+               :none :NONE })
 
 (local highlights
        {:Normal {:fg colors.text :bg colors.surface}
@@ -196,21 +195,30 @@
         :NvimTreeSymlinkFolderName {:fg colors.text}
         :NvimTreeFileIcon {:fg colors.sakura}
         :NvimTreeSymlinkIcon {:fg colors.mint}
-        :NvimTreeGitIgnoredIcon {:fg colors.text-dark}
         :NvimTreeGitIgnored {:fg colors.text-dark}
+        :NvimTreeGitIgnoredIcon {:fg colors.text-dark}
+        :NvimTreeGitStaged {:fg colors.mint}
         :NvimTreeGitStagedIcon {:fg colors.mint}
-        :NvimTreeModifiedIcon {:fg colors.peach}
+        :NvimTreeModified {:fg colors.sakura}
+        :NvimTreeModifiedIcon {:fg colors.sakura}
+        :NvimTreeGitDeleted {:fg colors.sakura}
         :NvimTreeGitDeletedIcon {:fg colors.sakura}
+        :NvimTreeGitDirty {:fg colors.peach}
+        :NvimTreeGitDirtyIcon {:fg colors.peach}
+        :NvimTreeGitNew {:fg colors.mint}
+        :NvimTreeGitNewIcon {:fg colors.mint}
+        :NvimTreeGitMerge {:fg colors.peach}
+        :NvimTreeGitMergeIcon {:fg colors.peach}
         ; mini.icons
-        :MiniIconsAzure {:fg colors.text}
-        :MiniIconsBlue {:fg colors.text}
-        :MiniIconsCyan {:fg colors.text}
-        :MiniIconsGreen {:fg colors.text}
-        :MiniIconsGrey {:fg colors.text}
-        :MiniIconsOrange {:fg colors.text}
-        :MiniIconsPurple {:fg colors.text}
-        :MiniIconsRed {:fg colors.text}
-        :MiniIconsYellow {:fg colors.text}
+        :MiniIconsAzure {:fg colors.sky}
+        :MiniIconsBlue {:fg colors.sky}
+        :MiniIconsCyan {:fg colors.mint}
+        :MiniIconsGreen {:fg colors.mint}
+        :MiniIconsGrey {:fg colors.text-dark}
+        :MiniIconsOrange {:fg colors.peach}
+        :MiniIconsPurple {:fg colors.berry}
+        :MiniIconsRed {:fg colors.sakura}
+        :MiniIconsYellow {:fg colors.peach}
         ; GitSigns
         :GitSignsAdd {:fg colors.mint}
         :GitSignsChange {:fg colors.peach}
@@ -247,7 +255,7 @@
   (vim.diagnostic.config {:signs {:text {vim.diagnostic.severity.ERROR ""
                                          vim.diagnostic.severity.WARN ""
                                          vim.diagnostic.severity.HINT ""
-                                         vim.diagnostic.severity.INFO ""}}}))
+                                         vim.diagnostic.severity.INFO ""}}}))
 
 (set _G.colors colors)
 

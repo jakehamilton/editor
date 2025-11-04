@@ -3,7 +3,6 @@
 
 (refactoring.setup)
 
-(keymap :<leader>r {:group :Refactor :desc :Refactor})
 (keymap :<leader>re "<cmd>Refactor extract<cr>" {:desc :Extract :mode :x})
 (keymap :<leader>rf "<cmd>Refactor extract_to_file<cr>"
         {:desc "Extract To File" :mode :x})

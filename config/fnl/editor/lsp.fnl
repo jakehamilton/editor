@@ -18,8 +18,6 @@
 (none-ls.setup {:sources [; Misc
                           none-ls.builtins.diagnostics.todo_comments
                           none-ls.builtins.diagnostics.trail_space
-                          null_ls.builtins.formatting.trim_whitespace
-                          null_ls.builtins.formatting.trim_newlines
                           ; Fennel
                           none-ls.builtins.formatting.fnlfmt
                           ; Go
@@ -47,10 +45,11 @@
                           ; Godot
                           none-ls.builtins.formatting.gdformat
                           ; JS & TS
-                          (none-ls.builtins.formatting.prettierd.with {:condition (lambda [utils]
-                                                                                    (not (or (utils.has_file :.eslintrc)
-                                                                                             (utils.has_file :.eslintrc.js)
-                                                                                             (utils.has_file :.eslintrc.ts))))})
+                          none-ls.builtins.formatting.prettierd
+                          ; (none-ls.builtins.formatting.prettierd.with {:condition (lambda [utils]
+                          ;                                                           (not (or (utils.has_file :.eslintrc)
+                          ;                                                                    (utils.has_file :.eslintrc.js)
+                          ;                                                                    (utils.has_file :.eslintrc.ts))))})
                           ; Prisma
                           none-ls.builtins.formatting.prisma_format
                           ; Shell

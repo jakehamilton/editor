@@ -18,6 +18,8 @@
 (none-ls.setup {:sources [; Misc
                           none-ls.builtins.diagnostics.todo_comments
                           none-ls.builtins.diagnostics.trail_space
+                          null_ls.builtins.formatting.trim_whitespace
+                          null_ls.builtins.formatting.trim_newlines
                           ; Fennel
                           none-ls.builtins.formatting.fnlfmt
                           ; Go

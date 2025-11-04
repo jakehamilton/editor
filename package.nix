@@ -207,8 +207,8 @@
           rust-analyzer
 
           # Markdown
-          proselint
-          textlint
+          markdownlint-cli
+          codespell
 
           # Nix
           statix

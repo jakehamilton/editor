@@ -26,8 +26,8 @@
                           none-ls.builtins.formatting.gofumpt
                           none-ls.builtins.formatting.goimports_reviser
                           ; Text
-                          none-ls.builtins.code_actions.proselint
-                          none-ls.builtins.diagnostics.proselint
+                          none-ls.builtins.diagnostics.markdownlint
+                          none-ls.builtins.formatting.markdownlint
                           none-ls.builtins.diagnostics.codespell
                           none-ls.builtins.formatting.codespell
                           ; Refactoring code

@@ -143,7 +143,7 @@
                                                   {:mode :n
                                                    :buffer bufnr
                                                    :desc "Open Diagnostic"})
-                                          (keymap :<leader>rf
+                                          (keymap :<leader>bf
                                                   (lambda []
                                                     (vim.lsp.buf.format {:async true}))
                                                   {:mode :n

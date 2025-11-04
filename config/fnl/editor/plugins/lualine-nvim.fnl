@@ -80,41 +80,46 @@
                          :lualine_c []
                          :lualine_x []
                          :lualine_y []
-                         :lualine_z [
-                                     (doto [:filetype]
+                         :lualine_z [(doto [:filetype]
                                        (tset :colored true)
                                        (tset :icon_only true)
-                                       (tset :color {:fg colors.text
-                                                     :bg colors.surface-lightest}))
+                                       (tset :color
+                                             {:fg colors.text
+                                              :bg colors.surface-lightest}))
                                      (doto [:filename]
                                        (tset :file_status true)
                                        (tset :shorting_target 25)
                                        (tset :path 1)
-                                       (tset :symbols {:modified ""
-                                                       :readonly ""
-                                                       :unnamed "󰡯"
-                                                       :newfile "󰎔"})
+                                       (tset :symbols
+                                             {:modified ""
+                                              :readonly ""
+                                              :unnamed "󰡯"
+                                              :newfile "󰎔"})
                                        (tset :separator {:left ""})
-                                       (tset :color {:fg colors.surface-darkest :bg colors.text}))]}
-
+                                       (tset :color
+                                             {:fg colors.surface-darkest
+                                              :bg colors.text}))]}
                 :inactive_winbar {:lualine_a []
                                   :lualine_b []
                                   :lualine_c []
                                   :lualine_x []
                                   :lualine_y []
-                                  :lualine_z [
-                                               (doto [:filetype]
-                                                 (tset :colored true)
-                                                 (tset :icon_only true)
-                                                 (tset :color {:fg colors.text
-                                                               :bg colors.surface-light}))
-                                               (doto [:filename]
-                                                   (tset :file_status true)
-                                                   (tset :shorting_target 25)
-                                                   (tset :path 1)
-                                                   (tset :symbols {:modified ""
-                                                                           :readonly ""
-                                                                           :unnamed "󰡯"
-                                                                           :newfile "󰎔"})
-                                                   (tset :separator {:left ""})
-                                                   (tset :color {:fg colors.text :bg colors.surface-lighter}))]}})
+                                  :lualine_z [(doto [:filetype]
+                                                (tset :colored true)
+                                                (tset :icon_only true)
+                                                (tset :color
+                                                      {:fg colors.text
+                                                       :bg colors.surface-light}))
+                                              (doto [:filename]
+                                                (tset :file_status true)
+                                                (tset :shorting_target 25)
+                                                (tset :path 1)
+                                                (tset :symbols
+                                                      {:modified ""
+                                                       :readonly ""
+                                                       :unnamed "󰡯"
+                                                       :newfile "󰎔"})
+                                                (tset :separator {:left ""})
+                                                (tset :color
+                                                      {:fg colors.text
+                                                       :bg colors.surface-lighter}))]}})

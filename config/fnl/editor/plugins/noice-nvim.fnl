@@ -23,4 +23,3 @@
                        {:filter {:event :notify
                                  :any [{:find "No information available"}]}
                         :opts {:skip true}}]})
-                       

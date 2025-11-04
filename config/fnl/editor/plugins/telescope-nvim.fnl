@@ -17,3 +17,5 @@
 (keymap :<leader>fi "<cmd>Telescope nerdy<cr>" {:desc "Find Icon"})
 (keymap :<leader>fI "<cmd>Telescope nerdy_recents<cr>"
         {:desc "Find Recent Icon"})
+
+(keymap :<leader>fb "<cmd>Telescope buffers<cr>" {:desc "Find Buffer"})

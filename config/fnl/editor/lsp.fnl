@@ -94,85 +94,48 @@
                           ; Shell
                           none-ls.builtins.formatting.shellharden]})
 
-(lambda on_attach [client bufnr]
-    (when (= nil client)
-      (lua :return))
-    ; Set omnifunc to use LSP
-    (tset (. vim.bo bufnr) :omnifunc
-          "v:lua.vim.lsp.omnifunc")
-    ; Common bindings
-    (keymap :gh vim.lsp.buf.hover
-            {:mode :n
-             :buffer bufnr
-             :desc "Show Info"})
-    (keymap :gd vim.lsp.buf.definition
-            {:mode :n
-             :buffer bufnr
-             :desc "Go To Definition"})
-    (keymap :gD vim.lsp.buf.declaration
-            {:mode :n
-             :buffer bufnr
-             :desc "Go To Declaration"})
-    (keymap :gi
-            vim.lsp.buf.implementation
-            {:mode :n
-             :buffer bufnr
-             :desc "Go To Implementation"})
-    (keymap :gr vim.lsp.buf.references
-            {:mode :n
-             :buffer bufnr
-             :desc "Go To References"})
-    (keymap :<leader>rn
-            vim.lsp.buf.rename
-            {:mode :n
-             :buffer bufnr
-             :desc :Rename})
-    (keymap :<c-k>
-            vim.lsp.buf.signature_help
-            {:mode :ni
-             :buffer bufnr
-             :desc "Show Signature"})
-    (keymap "[d" vim.diagnostic.goto_prev
-            {:mode :n
-             :buffer bufnr
-             :desc "Previous Diagnostic"})
-    (keymap "]d" vim.diagnostic.goto_next
-            {:mode :n
-             :buffer bufnr
-             :desc "Next Diagnostic"})
-    (keymap :<leader>od
-            vim.diagnostic.open_float
-            {:mode :n
-             :buffer bufnr
-             :desc "Open Diagnostic"})
-    (keymap :<leader>bf
-            (lambda []
-              (vim.lsp.buf.format {:async true}))
-            {:mode :n
-             :buffer bufnr
-             :desc :Format})
-    ; Handle completions for LSP that support them
-    ; TODO: Enable this when the Neovim version is bumped
-    ; (when (client:supports_method vim.lsp.protocol.Methods.textDocument_inlineCompletion
-    ;                               bufnr)
-    ;   (vim.lsp.inline_completion.enable true
-    ;                                     {: bufnr})
-    ;   (keymap :<c-f> ;           vim.lsp.inline_completion.get
-    ;           {:mode :i ;            :desc "Accept Completion"})
-    ;   (keymap :<c-g> ;           vim.lsp.inline_completion.select
-    ;           {:mode :i ;            :desc "Switch Completion"}))
-    ; Handle formatting
-    (when (and (not (client:supports_method :textDocument/willSaveWaitUntil
-                                            bufnr))
-               (client:supports_method :textDocument/formatting
-                                       bufnr))
-      (vim.api.nvim_create_autocmd :BufWritePre
-                                   {:group (vim.api.nvim_create_augroup :bliss.lsp
-                                                                        {:clear false})
-                                    :buffer bufnr
-                                    :callback (lambda []
-                                                (vim.lsp.buf.format {: bufnr
-                                                                     :id client.id
-                                                                     :timeout_ms 1000}))})))
+(lambda on_attach [client bufnr] ; Set omnifunc to use LSP
+  (tset (. vim.bo bufnr) :omnifunc "v:lua.vim.lsp.omnifunc") ; Common bindings
+  (keymap :gh vim.lsp.buf.hover {:mode :n :buffer bufnr :desc "Show Info"})
+  (keymap :gd vim.lsp.buf.definition
+          {:mode :n :buffer bufnr :desc "Go To Definition"})
+  (keymap :gD vim.lsp.buf.declaration
+          {:mode :n :buffer bufnr :desc "Go To Declaration"})
+  (keymap :gi vim.lsp.buf.implementation
+          {:mode :n :buffer bufnr :desc "Go To Implementation"})
+  (keymap :gr vim.lsp.buf.references
+          {:mode :n :buffer bufnr :desc "Go To References"})
+  (keymap :<leader>rn vim.lsp.buf.rename {:mode :n :buffer bufnr :desc :Rename})
+  (keymap :<c-k> vim.lsp.buf.signature_help
+          {:mode :ni :buffer bufnr :desc "Show Signature"})
+  (keymap "[d" vim.diagnostic.goto_prev
+          {:mode :n :buffer bufnr :desc "Previous Diagnostic"})
+  (keymap "]d" vim.diagnostic.goto_next
+          {:mode :n :buffer bufnr :desc "Next Diagnostic"})
+  (keymap :<leader>od vim.diagnostic.open_float
+          {:mode :n :buffer bufnr :desc "Open Diagnostic"})
+  (keymap :<leader>bf
+          (lambda []
+            (vim.lsp.buf.format {:async true}))
+          {:mode :n :buffer bufnr :desc :Format})
+  (vim.api.nvim_create_autocmd :BufWritePre
+                               {:group (vim.api.nvim_create_augroup :bliss.lsp
+                                                                    {:clear false})
+                                :buffer bufnr
+                                :callback (lambda []
+                                            (vim.lsp.buf.format {: bufnr
+                                                                 :timeout_ms 1000}))}))
 
-(vim.lsp.config :* {:on_attach on_attach})
+; Handle completions for LSP that support them
+; TODO: Enable this when the Neovim version is bumped
+; (when (client:supports_method vim.lsp.protocol.Methods.textDocument_inlineCompletion
+;                               bufnr)
+;   (vim.lsp.inline_completion.enable true
+;                                     {: bufnr})
+;   (keymap :<c-f> ;           vim.lsp.inline_completion.get
+;           {:mode :i ;            :desc "Accept Completion"})
+;   (keymap :<c-g> ;           vim.lsp.inline_completion.select
+;           {:mode :i ;            :desc "Switch Completion"}))
+; Handle formatting
+
+(vim.lsp.config "*" {: on_attach})

@@ -95,22 +95,16 @@
                                               :readonly ""
                                               :unnamed "󰡯"
                                               :newfile "󰎔"})
-                                       (tset :separator {:left ""})
-                                       (tset :color
-                                             {:fg colors.surface-darkest
-                                              :bg colors.text}))]}
+                                       (tset :separator {:left ""}))]}
+
                 :inactive_winbar {:lualine_a []
                                   :lualine_b []
                                   :lualine_c []
                                   :lualine_x []
-                                  :lualine_y []
-                                  :lualine_z [(doto [:filetype]
+                                  :lualine_y [(doto [:filetype]
                                                 (tset :colored true)
-                                                (tset :icon_only true)
-                                                (tset :color
-                                                      {:fg colors.text
-                                                       :bg colors.surface-light}))
-                                              (doto [:filename]
+                                                (tset :icon_only true))]
+                                  :lualine_z [(doto [:filename]
                                                 (tset :file_status true)
                                                 (tset :shorting_target 25)
                                                 (tset :path 1)

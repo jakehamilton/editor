@@ -184,7 +184,7 @@
         :NvimTreeNormal {:fg colors.text :bg colors.surface}
         :NvimTreeExecFile {:fg colors.sakura}
         :NvimTreeImageFile {:fg colors.text}
-        :NvimTreeSpecialFile {:fg colors.mint}
+        :NvimTreeSpecialFile {:fg colors.text}
         :NvimTreeSymlink {:fg colors.mint}
         :NvimTreeFolderIcon {:fg colors.sakura}
         :NvimTreeFolderName {:fg colors.text}

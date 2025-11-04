@@ -19,8 +19,8 @@
                                                :NvimTree
                                                :dashboard
                                                ""]}
-                         :indent {:char "┆"}
-                         :highlight highlights})
+                         :indent {:char "┆"
+                                   :highlight highlights}})
 
 (hooks.register hooks.type.SCOPE_HIGHLIGHT
                 hooks.builtin.scope_highlight_from_extmark)

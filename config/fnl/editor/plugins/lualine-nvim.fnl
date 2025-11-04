@@ -26,40 +26,40 @@
                           :theme {:normal {:a {:fg colors.surface-dark
                                                :bg colors.text}
                                            :b {:bg colors.surface-lighter}
-                                           :c {:bg colors.surface-darkest}
-                                           :x {:bg colors.surface-darkest}
+                                           :c {:bg colors.surface}
+                                           :x {:bg colors.surface}
                                            :y {:bg colors.surface-lighter}
                                            :z {:fg colors.surface-dark
                                                :bg colors.text}}
                                   :insert {:a {:fg colors.text
                                                :bg colors.sakura}
                                            :b {:bg colors.surface-lighter}
-                                           :c {:bg colors.surface-darkest}
-                                           :x {:bg colors.surface-darkest}
+                                           :c {:bg colors.surface}
+                                           :x {:bg colors.surface}
                                            :y {:bg colors.surface-lighter}
                                            :z {:fg colors.text
                                                :bg colors.sakura}}
                                   :visual {:a {:fg colors.text
                                                :bg colors.peach}
                                            :b {:bg colors.surface-lighter}
-                                           :c {:bg colors.surface-darkest}
-                                           :x {:bg colors.surface-darkest}
+                                           :c {:bg colors.surface}
+                                           :x {:bg colors.surface}
                                            :y {:bg colors.surface-lighter}
                                            :z {:fg colors.text
                                                :bg colors.peach}}
                                   :replace {:a {:fg colors.text
                                                 :bg colors.mint}
                                             :b {:bg colors.surface-lighter}
-                                            :c {:bg colors.surface-darkest}
-                                            :x {:bg colors.surface-darkest}
+                                            :c {:bg colors.surface}
+                                            :x {:bg colors.surface}
                                             :y {:bg colors.surface-lighter}
                                             :z {:fg colors.text
                                                 :bg colors.mint}}
                                   :inactive {:a {:fg colors.surface-dark
                                                  :bg colors.text}
                                              :b {:bg colors.surface-lighter}
-                                             :c {:bg colors.surface-darkest}
-                                             :x {:bg colors.surface-darkest}
+                                             :c {:bg colors.surface}
+                                             :x {:bg colors.surface}
                                              :y {:bg colors.surface-lighter}
                                              :z {:fg colors.surface-dark
                                                  :bg colors.text}}}}

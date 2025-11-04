@@ -18,5 +18,8 @@
                                  :any [{:find :search_count}
                                        {:find "search hit"}
                                        {:find "%[%d+/%d+%]"}]}
+                        :opts {:skip true}}
+                       {:filter {:event :msg_show
+                                 :any [{:find "No information available"}]}
                         :opts {:skip true}}]})
                        

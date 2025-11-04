@@ -18,10 +18,17 @@
 (import :editor.plugins.rainbow-delimiters)
 (import :editor.plugins.telescope-nvim)
 (import :editor.plugins.actions-preview-nvim)
+(import :editor.plugins.auto-session)
+(import :editor.plugins.dashboard-nvim)
+(import :editor.plugins.conform-nvim)
+(import :editor.plugins.nvim-paredit)
+(import :editor.plugins.conjure)
+(import :editor.plugins.nvim-surround)
 
 (import :editor.theme (setup :as setup-theme))
 (import :editor.keys (setup :as setup-keys))
 (import :editor.lsp)
+(import :editor.scratch)
 
 (setup-theme)
 (setup-keys)
@@ -29,3 +36,5 @@
 ; BufferLine has an issue with its highlight groups being cleared. Because of
 ; this it has to be imported *after* the theme has been set up.
 (import :editor.plugins.bufferline-nvim)
+; IndentBlankline also...
+(import :editor.plugins.indent-blankline-nvim)

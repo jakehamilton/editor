@@ -12,7 +12,8 @@
 
 ;; Set up paths
 (set fennel.path (.. fennel.path ";./config/fnl/?.fnl;./config/fnl/?/init.fnl"))
-(set fennel.macro-path (.. fennel.macro-path ";./config/fnl/?.fnl;./config/fnl/?/init.fnl"))
+(set fennel.macro-path
+     (.. fennel.macro-path ";./config/fnl/?.fnl;./config/fnl/?/init.fnl"))
 
 ;; Add Fennel's searcher
 (fennel.install)

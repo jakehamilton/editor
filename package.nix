@@ -4,9 +4,22 @@
   config.packages.default = config.packages.neovim;
 
   config.packages.neovim = {
-    systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
 
-    package = { pkgs, lib, callPackage, vimPlugins, neovim-unwrapped, ... }:
+    package =
+      {
+        pkgs,
+        lib,
+        callPackage,
+        vimPlugins,
+        neovim-unwrapped,
+        ...
+      }:
       let
         pname = "editor";
 
@@ -17,141 +30,165 @@
         inherit (basePackage) lua;
         inherit (lua.pkgs) luaLib;
 
-        luaEnv = lua.withPackages (packages: with packages; [
-          fennel
-          luafilesystem
-        ]);
+        luaEnv = lua.withPackages (
+          packages: with packages; [
+            fennel
+            luafilesystem
+          ]
+        );
 
         plugins = import ./plugins.nix {
           project = config;
           inherit pkgs;
           inherit lib;
         };
-
-        chmod = package: path:
-          package.overrideAttrs (old: {
-            install = (old.install or "") + ''
-              							chmod +x $out/${path}
-              						'';
-          });
       in
       wrap {
         inherit pname;
 
         userConfig = ./config;
 
-        aliases = [ "vi" "vim" ];
+        aliases = [
+          "vi"
+          "vim"
+        ];
 
         inherit basePackage;
 
-        startPlugins = (with plugins; [
-          # Code folding
-          nvim-ufo
+        startPlugins =
+          (with plugins; [
+            # Code folding
+            nvim-ufo
 
-          # Miscellaneous LSP integrations
-          none-ls
+            # Miscellaneous LSP integrations
+            none-ls
 
-          # Refactor code
-          refactoring-nvim
-        ]) ++ (with vimPlugins; [
-          # Utilities required by other plugins
-          plenary-nvim
+            # Refactor code
+            refactoring-nvim
+          ])
+          ++ (with vimPlugins; [
+            # Utilities required by other plugins
+            plenary-nvim
 
-          # Syntax and text objects
-          nvim-treesitter.withAllGrammars
+            # Syntax and text objects
+            nvim-treesitter.withAllGrammars
 
-          # Needed for other plugins to show icons
-          mini-icons
+            # Needed for other plugins to show icons
+            mini-icons
 
-          # Git status indicators
-          gitsigns-nvim
+            # Git status indicators
+            gitsigns-nvim
 
-          # Key binding conveniences
-          which-key-nvim
+            # Key binding conveniences
+            which-key-nvim
 
-          # Needed for nvim-ufo
-          promise-async
+            # Needed for nvim-ufo
+            promise-async
 
-          # File tree
-          nvim-tree-lua
+            # File tree
+            nvim-tree-lua
 
-          # Tmux integration
-          vim-tmux-navigator
+            # Tmux integration
+            vim-tmux-navigator
 
-          # Buffer management
-          vim-bufkill
+            # Buffer management
+            vim-bufkill
 
-          # UI components
-          nui-nvim
+            # UI components
+            nui-nvim
 
-          # Notification views
-          nvim-notify
+            # Notification views
+            nvim-notify
 
-          # Modern Neovim UI
-          noice-nvim
+            # Modern Neovim UI
+            noice-nvim
 
-          # Incremental rename
-          inc-rename-nvim
+            # Incremental rename
+            inc-rename-nvim
 
-          # Language server configurations (defaults)
-          nvim-lspconfig
+            # Language server configurations (defaults)
+            nvim-lspconfig
 
-          # Fuzzy finding (also needed by other plugins)
-          fzf-lua
+            # Fuzzy finding (also needed by other plugins)
+            fzf-lua
 
-          # Diagnostics panel
-          trouble-nvim
+            # Diagnostics panel
+            trouble-nvim
 
-          # Status line
-          lualine-nvim
+            # Status line
+            lualine-nvim
 
-          # Smooth scrolling
-          neoscroll-nvim
+            # Smooth scrolling
+            neoscroll-nvim
 
-          # Search UI
-          telescope-nvim
-          # Fuzzy find in Telescope
-          telescope-fzf-native-nvim
+            # Search UI
+            telescope-nvim
+            # Fuzzy find in Telescope
+            telescope-fzf-native-nvim
 
-          # Easy commenting
-          comment-nvim
+            # Easy commenting
+            comment-nvim
 
-          # List open files
-          bufferline-nvim
+            # List open files
+            bufferline-nvim
 
-          # Colored parenthesis & brackets
-          rainbow-delimiters-nvim
+            # Colored parenthesis & brackets
+            rainbow-delimiters-nvim
 
-          # Icon searching
-          nerdy-nvim
+            # Icon searching
+            nerdy-nvim
 
-          # Snippets
-          luasnip
+            # Snippets
+            luasnip
 
-          # Completion
-          nvim-cmp
-          cmp-nvim-lsp
-          cmp-fuzzy-buffer
-          cmp-fuzzy-path
-          cmp-cmdline
-          cmp-cmdline-history
-          cmp-dictionary
-          cmp_luasnip
+            # Completion
+            nvim-cmp
+            cmp-nvim-lsp
+            cmp-fuzzy-buffer
+            cmp-fuzzy-path
+            cmp-cmdline
+            cmp-cmdline-history
+            cmp-dictionary
+            cmp_luasnip
 
-          # Auto closing parenthesis & brackets
-          nvim-autopairs
+            # Auto closing parenthesis & brackets
+            nvim-autopairs
 
-          # Preview code actions
-          actions-preview-nvim
+            # Preview code actions
+            actions-preview-nvim
 
-          # LSP virtual text
-          lsp_lines-nvim
-        ]);
+            # LSP virtual text
+            lsp_lines-nvim
 
-        optPlugins = (with plugins; [
+            # Session management
+            auto-session
 
-        ]) ++ (with vimPlugins; [
-        ]);
+            # Dashboard
+            dashboard-nvim
+
+            # Formatting arbitrary files
+            conform-nvim
+
+            # Lisp parenthesis management
+            nvim-paredit
+            nvim-parinfer
+
+            # Lisp scratch pad (Fennel)
+            conjure
+
+            # Indent guides
+            indent-blankline-nvim-lua
+
+            # Surrounding text modification
+            nvim-surround
+          ]);
+
+        optPlugins =
+          (with plugins; [
+
+          ])
+          ++ (with vimPlugins; [
+          ]);
 
         extraPackages = with pkgs; [
           # Lua & Fennel

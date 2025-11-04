@@ -1,6 +1,6 @@
 ; Leader
 (vim-global :mapleader " ")
-(vim-global :maplocalleader " ")
+(vim-global :maplocalleader ",")
 
 ; Disable mouse
 (vim-option :mouse "")

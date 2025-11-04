@@ -50,7 +50,7 @@
                :sky-dark "#88B0D8"
                :white "#FFFFFF"
                :black "#000000"
-               :none :NONE })
+               :none :NONE})
 
 (local highlights
        {:Normal {:fg colors.text :bg colors.surface}
@@ -231,6 +231,13 @@
         :RainbowDelimiterBerry {:fg colors.berry}
         :RainbowDelimiterMint {:fg colors.mint}
         :RainbowDelimiterSky {:fg colors.sky}
+        ; indent-blank-line
+        :IBLBase {:fg colors.text}
+        :IBLSakura {:fg colors.sakura}
+        :IBLPeach {:fg colors.peach}
+        :IBLBerry {:fg colors.berry}
+        :IBLMint {:fg colors.mint}
+        :IBLSky {:fg colors.sky}
         ; Nix
         :nixArgumentEllipsis {:fg colors.text-dark}
         ; TypeScript

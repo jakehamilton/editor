@@ -7,7 +7,6 @@
                              ; handling the coloring of tabs and separators how I want.
                              ; Instead no separator is used.
                              :separator_style ["" ""]
-														 :indicator {:icon ">"}
                              :enforce_regular_tabs true
                              :close_icon ""
                              :buffer_close_icon ""
@@ -39,12 +38,10 @@
                    ; of writing, none of these appear. Perhaps this is all I need
                    ; for my usage? If so, the entries with `colors.sky` set can
                    ; be removed.
-                   :highlights {:fill {:fg colors.surface
-                                       :bg colors.surface}
+                   :highlights {:fill {:fg colors.surface :bg colors.surface}
                                 :background {:fg colors.text
                                              :bg colors.surface}
-                                :tab {:fg colors.text
-                                      :bg colors.surface}
+                                :tab {:fg colors.text :bg colors.surface}
                                 :tab_selected {:fg colors.sakura
                                                :bg colors.surface}
                                 :tab_separator {:fg colors.sky :bg colors.sky}
@@ -52,8 +49,7 @@
                                                          :bg colors.sky}
                                 :tab_close {:fg colors.surface
                                             :bg colors.surface}
-                                :separator {:fg colors.surface
-                                            :bg colors.none}
+                                :separator {:fg colors.surface :bg colors.none}
                                 :separator_selected {:fg colors.surface
                                                      :bg colors.none}
                                 :separator_visible {:fg colors.surface
@@ -64,14 +60,12 @@
                                                        :bg colors.surface}
                                 :close_button_selected {:fg colors.surface
                                                         :bg colors.surface}
-                                :buffer {:fg colors.text
-                                         :bg colors.surface}
+                                :buffer {:fg colors.text :bg colors.surface}
                                 :buffer_visible {:fg colors.text
                                                  :bg colors.surface}
                                 :buffer_selected {:fg colors.text
                                                   :bg colors.surface}
-                                :numbers {:fg colors.text
-                                          :bg colors.surface}
+                                :numbers {:fg colors.text :bg colors.surface}
                                 :numbers_visible {:fg colors.text
                                                   :bg colors.surface}
                                 :numbers_selected {:fg colors.text
@@ -133,24 +127,27 @@
                                                     :bg colors.surface}
                                 :indicator_selected {:fg colors.sakura
                                                      :bg colors.surface}
-                                :pick {:fg colors.text
-                                       :bg colors.surface}
+                                :pick {:fg colors.text :bg colors.surface}
                                 :pick_selected {:fg colors.text
                                                 :bg colors.surface}
                                 :pick_visible {:fg colors.text
                                                :bg colors.surface}
                                 :offset_separator {:fg colors.surface-lightest
                                                    :bg colors.surface}
-                                :trunc_marker {:fg colors.text :bg colors.surface}}})
+                                :trunc_marker {:fg colors.text
+                                               :bg colors.surface}}})
 
 (keymap :<leader>bn :<cmd>BufferLineCycleNext<cr> {:desc "Next Buffer"})
 (keymap :<leader>bp :<cmd>BufferLineCyclePrev<cr> {:desc "Previous Buffer"})
 (keymap :<leader>cr :<cmd>BufferLineCloseRight<cr>
         {:desc "Close Buffers To The Right"})
+
 (keymap :<leader>cl :<cmd>BufferLineCloseLeft<cr>
         {:desc "Close Buffers To The Left"})
+
 (keymap :<leader>co :<cmd>BufferLineCloseOthers<cr>
         {:desc "Close Other Buffers"})
+
 (keymap :<leader>pb :<cmd>BufferLinePick<cr> {:desc "Pick Buffer"})
 (keymap :<leader>pB :<cmd>BufferLinePickClose<cr>
         {:desc "Pick Buffer To Close"})

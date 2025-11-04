@@ -33,7 +33,7 @@
   (keymap :<leader>h nil {:group :Hunk})
   (keymap :<leader>p nil {:group :Pick})
   (keymap :<leader>t nil {:group :Toggle})
-  (keymap :<leader>t nil {:group :Find})
+  (keymap :<leader>f nil {:group :Find})
   (keymap :<leader>q :<cmd>wqa<cr> {:desc "Save & Quit"})
   (keymap :<leader>Q :<cmd>qa!<cr> {:desc :Quit})
   (keymap :<leader>w :<cmd>w<cr> {:desc :Save})

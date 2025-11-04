@@ -39,7 +39,6 @@
                           none-ls.builtins.diagnostics.buf
                           none-ls.builtins.formatting.buf
                           ; Git
-                          none-ls.builtins.diagnostics.commitlint
                           none-ls.builtins.code_actions.gitsigns
                           ; EditorConfig
                           none-ls.builtins.diagnostics.editorconfig_checker

@@ -222,9 +222,6 @@
           # Spelling
           codespell
 
-          # Git
-          commitlint
-
           # EditorConfig
           editorconfig-checker
 

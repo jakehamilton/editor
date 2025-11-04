@@ -24,5 +24,6 @@
 
 (keymap :<c-n> :<cmd>NvimTreeToggle<cr>
         {:mode :nvt :desc "Toggle Files" :noremap true})
+
 (keymap :<leader>tn :<cmd>NvimTreeToggle<cr> {:desc "Toggle Files"})
 (keymap :<leader>gf :<cmd>NvimTreeFindFile<cr> {:mode :nvt :desc "Go To File"})

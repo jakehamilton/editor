@@ -41,8 +41,9 @@
   (keymap :<leader>ch :<cmd>noh<cr> {:desc "Clear Highlight"})
   (keymap :<leader>cs "<cmd>let @/=\"\"<cr>" {:desc "Clear Search"})
   (keymap :<c-o> "<c-\\><c-n>" {:mode :t :desc "Leave Terminal"})
-  (keymap :<leader>tw (lambda []
-                (set vim.wo.wrap (not vim.wo.wrap)))
+  (keymap :<leader>tw
+          (lambda []
+            (set vim.wo.wrap (not vim.wo.wrap)))
           {:desc "Toggle Line Wrap"}))
 
 (export setup keymap)

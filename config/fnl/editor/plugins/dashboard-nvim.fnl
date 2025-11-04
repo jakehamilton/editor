@@ -34,6 +34,6 @@
                                        :key :r
                                        :action "Telescope oldfiles"}
                                       {:icon " "
-                                       :desc :Config
+                                       :desc "Config "
                                        :key :c
                                        :action "e ~/work/config"}]}})

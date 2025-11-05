@@ -266,74 +266,74 @@
         ];
 
         extraInitLua = ''
-          						package.path = "${luaLib.genLuaPathAbsStr luaEnv};$LUA_PATH" .. package.path
-                      package.cpath = "${luaLib.genLuaCPathAbsStr luaEnv};$LUA_CPATH" .. package.cpath
+          package.path = "${luaLib.genLuaPathAbsStr luaEnv};$LUA_PATH" .. package.path
+          package.cpath = "${luaLib.genLuaCPathAbsStr luaEnv};$LUA_CPATH" .. package.cpath
 
-          						-- Set up Fennel with full environment access
-          						local fennel = require("fennel")
-          						local config_path = vim.split(vim.o.runtimepath, ',')[1]
-          						local fnl_path = config_path .. "/pack/${pname}/start/init-plugin/fnl"
+          -- Set up Fennel with full environment access
+          local fennel = require("fennel")
+          local config_path = vim.split(vim.o.runtimepath, ',')[1]
+          local fnl_path = config_path .. "/pack/${pname}/start/init-plugin/fnl"
 
-          						-- Configure Fennel paths
-          						fennel.path = fnl_path .. "/?.fnl;" .. fnl_path .. "/?/init.fnl"
-          						fennel["macro-path"] = fnl_path .. "/?.fnl;" .. fnl_path .. "/?/init-macros.fnl;" .. fnl_path .. "/?/init.fnl"
+          -- Configure Fennel paths
+          fennel.path = fnl_path .. "/?.fnl;" .. fnl_path .. "/?/init.fnl"
+          fennel["macro-path"] = fnl_path .. "/?.fnl;" .. fnl_path .. "/?/init-macros.fnl;" .. fnl_path .. "/?/init.fnl"
 
-          						-- Set up compiler options with full environment access
-          						local compiler_options = {
-          							correlate = true,
-          							useMetadata = true,
-          							["compiler-env"] = _G,  -- Full access to globals like vim
-          							allowedGlobals = false,  -- Disable whitelist, allow all globals
-          						}
+          -- Set up compiler options with full environment access
+          local compiler_options = {
+            correlate = true,
+            useMetadata = true,
+            ["compiler-env"] = _G,  -- Full access to globals like vim
+            allowedGlobals = false,  -- Disable whitelist, allow all globals
+          }
 
-          						-- Custom error handler
-          						local function error_handler(err)
-          							vim.notify(
-          								"Fennel compilation error:\n" .. tostring(err),
-          								vim.log.levels.ERROR
-          							)
-          							print("\n=== FENNEL ERROR ===")
-          							print(err)
-          							print("====================\n")
-          							return err
-          						end
+          -- Custom error handler
+          local function error_handler(err)
+            vim.notify(
+              "Fennel compilation error:\n" .. tostring(err),
+              vim.log.levels.ERROR
+            )
+            print("\n=== FENNEL ERROR ===")
+            print(err)
+            print("====================\n")
+            return err
+          end
 
-          						-- Add Fennel searcher
-          						table.insert(package.loaders or package.searchers, function(module_name)
-          							local filename = fennel["search-module"](module_name, fennel.path)
-          							if filename then
-          								return function()
-          									local is_macro = module_name:match("%.macros%.")
+          -- Add Fennel searcher
+          table.insert(package.loaders or package.searchers, function(module_name)
+            local filename = fennel["search-module"](module_name, fennel.path)
+            if filename then
+              return function()
+                local is_macro = module_name:match("%.macros%.")
 
-          									local ok, result = xpcall(
-          										function()
-          											if is_macro then
-          												return fennel.dofile(filename, compiler_options)
-          											else
-          												-- Read, prepend, and eval
-          												local f = io.open(filename, "r")
-          												if not f then error("Could not open file: " .. filename) end
-          												local content = f:read("*all")
-          												f:close()
+                local ok, result = xpcall(
+                  function()
+                    if is_macro then
+                      return fennel.dofile(filename, compiler_options)
+                    else
+                      -- Read, prepend, and eval
+                      local f = io.open(filename, "r")
+                      if not f then error("Could not open file: " .. filename) end
+                      local content = f:read("*all")
+                      f:close()
 
-          												local prepended = '(import-macros {: import : import/macro : import/lua} :editor.macros.import)\n(import-macros {: export } :editor.macros.export)\n(import-macros {: vim-option : vim-global} :editor.macros.vim)\n' .. content
-          												return fennel.eval(prepended, vim.tbl_extend("force", compiler_options, {
-          													filename = filename
-          												}))
-          											end
-          										end,
-          										error_handler
-          									)
+                      local prepended = '(import-macros {: import : import/macro : import/lua} :editor.macros.import)\n(import-macros {: export } :editor.macros.export)\n(import-macros {: vim-option : vim-global} :editor.macros.vim)\n' .. content
+                      return fennel.eval(prepended, vim.tbl_extend("force", compiler_options, {
+                        filename = filename
+                      }))
+                    end
+                  end,
+                  error_handler
+                )
 
-          									if ok then
-          										return result
-          									else
-          										error(result)
-          									end
-          								end
-          							end
-          						end)
-          					'';
+                if ok then
+                  return result
+                else
+                  error(result)
+                end
+              end
+            end
+          end)
+        '';
       };
   };
 }

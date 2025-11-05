@@ -42,7 +42,7 @@
                              :pick {:alphabet :abcdefghijklmopqrstuvwxyz}
                              :numbers (lambda [opts]
                                         (string.format "%s"
-                                                       (opts.raise (get_buffer_number opts.id))))}
+                                                       (opts.raise opts.ordinal)))}
                    ; TODO: There seem to be a LOT of highlight groups that
                    ; don't seem to work. Currently `colors.sky` is being used to
                    ; make the ones I don't know about visible. However, at the time

@@ -1,6 +1,17 @@
 (import :editor.keys (keymap))
 (import :editor.theme (colors))
 (import/lua :bufferline)
+(import/lua :bufferline.state)
+
+(fn get_buffer_number [id]
+  (local visible state.visible_components)
+  (if (or (not visible) (not= (type visible) :table))
+      nil
+      (do
+        (each [index element (ipairs visible)]
+          (when (= element.id id)
+            (lua "return index")))
+        nil)))
 
 (bufferline.setup {:options {:mode :buffers
                              ; I wanted to use "slope", but apparently Bufferline is incapable of
@@ -31,7 +42,7 @@
                              :pick {:alphabet :abcdefghijklmopqrstuvwxyz}
                              :numbers (lambda [opts]
                                         (string.format "%s"
-                                                       (opts.raise opts.ordinal)))}
+                                                       (opts.raise (get_buffer_number opts.id))))}
                    ; TODO: There seem to be a LOT of highlight groups that
                    ; don't seem to work. Currently `colors.sky` is being used to
                    ; make the ones I don't know about visible. However, at the time
@@ -65,10 +76,11 @@
                                                  :bg colors.surface}
                                 :buffer_selected {:fg colors.text
                                                   :bg colors.surface}
-                                :numbers {:fg colors.text :bg colors.surface}
-                                :numbers_visible {:fg colors.text
+                                :numbers {:fg colors.text-dark
+                                          :bg colors.surface}
+                                :numbers_visible {:fg colors.text-dark
                                                   :bg colors.surface}
-                                :numbers_selected {:fg colors.text
+                                :numbers_selected {:fg colors.text-dark
                                                    :bg colors.surface}
                                 :diagnostic {:fg colors.sky :bg colors.sky}
                                 :diagnostic_visible {:fg colors.sky

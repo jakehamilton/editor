@@ -53,48 +53,7 @@
                                                                 :command :LspEslintFixAll})))})
   (vim.lsp.enable :eslint))
 
-(none-ls.setup {:sources [; Misc
-                          none-ls.builtins.diagnostics.todo_comments
-                          none-ls.builtins.diagnostics.trail_space
-                          ; Fennel
-                          none-ls.builtins.formatting.fnlfmt
-                          ; Go
-                          none-ls.builtins.code_actions.gomodifytags
-                          none-ls.builtins.code_actions.impl
-                          none-ls.builtins.formatting.gofumpt
-                          none-ls.builtins.formatting.goimports_reviser
-                          ; Text
-                          none-ls.builtins.diagnostics.markdownlint
-                          none-ls.builtins.formatting.markdownlint
-                          none-ls.builtins.diagnostics.codespell
-                          none-ls.builtins.formatting.codespell
-                          ; Refactoring code
-                          none-ls.builtins.code_actions.refactoring
-                          ; Nix linting
-                          none-ls.builtins.diagnostics.deadnix
-                          none-ls.builtins.formatting.nixfmt
-                          ; Protobuf
-                          none-ls.builtins.diagnostics.buf
-                          none-ls.builtins.formatting.buf
-                          ; Git
-                          none-ls.builtins.code_actions.gitsigns
-                          ; EditorConfig
-                          none-ls.builtins.diagnostics.editorconfig_checker
-                          ; Godot
-                          none-ls.builtins.formatting.gdformat
-                          ; JS & TS
-                          none-ls.builtins.formatting.prettierd
-                          ; Optionally, only load Prettier for formatting when ESLint is not being used.
-                          ; (none-ls.builtins.formatting.prettierd.with {:condition (lambda [utils]
-                          ;                                                           (not (or (utils.has_file :.eslintrc)
-                          ;                                                                    (utils.has_file :.eslintrc.js)
-                          ;                                                                    (utils.has_file :.eslintrc.ts))))})
-                          ; Prisma
-                          none-ls.builtins.formatting.prisma_format
-                          ; Shell
-                          none-ls.builtins.formatting.shellharden]})
-
-(lambda on_attach [client bufnr] ; Set omnifunc to use LSP
+(lambda on_attach [_client bufnr] ; Set omnifunc to use LSP
   (tset (. vim.bo bufnr) :omnifunc "v:lua.vim.lsp.omnifunc") ; Common bindings
   (keymap :gh vim.lsp.buf.hover {:mode :n :buffer bufnr :desc "Show Info"})
   (keymap :gd vim.lsp.buf.definition
@@ -139,3 +98,45 @@
 ; Handle formatting
 
 (vim.lsp.config "*" {: on_attach})
+
+(none-ls.setup {: on_attach
+                :sources [; Misc
+                          none-ls.builtins.diagnostics.todo_comments
+                          none-ls.builtins.diagnostics.trail_space
+                          ; Fennel
+                          none-ls.builtins.formatting.fnlfmt
+                          ; Go
+                          none-ls.builtins.code_actions.gomodifytags
+                          none-ls.builtins.code_actions.impl
+                          none-ls.builtins.formatting.gofumpt
+                          none-ls.builtins.formatting.goimports_reviser
+                          ; Text
+                          none-ls.builtins.diagnostics.markdownlint
+                          none-ls.builtins.formatting.markdownlint
+                          none-ls.builtins.diagnostics.codespell
+                          none-ls.builtins.formatting.codespell
+                          ; Refactoring code
+                          none-ls.builtins.code_actions.refactoring
+                          ; Nix linting
+                          none-ls.builtins.diagnostics.deadnix
+                          none-ls.builtins.formatting.nixfmt
+                          ; Protobuf
+                          none-ls.builtins.diagnostics.buf
+                          none-ls.builtins.formatting.buf
+                          ; Git
+                          none-ls.builtins.code_actions.gitsigns
+                          ; EditorConfig
+                          none-ls.builtins.diagnostics.editorconfig_checker
+                          ; Godot
+                          none-ls.builtins.formatting.gdformat
+                          ; JS & TS
+                          none-ls.builtins.formatting.prettierd
+                          ; Optionally, only load Prettier for formatting when ESLint is not being used.
+                          ; (none-ls.builtins.formatting.prettierd.with {:condition (lambda [utils]
+                          ;                                                           (not (or (utils.has_file :.eslintrc)
+                          ;                                                                    (utils.has_file :.eslintrc.js)
+                          ;                                                                    (utils.has_file :.eslintrc.ts))))})
+                          ; Prisma
+                          none-ls.builtins.formatting.prisma_format
+                          ; Shell
+                          none-ls.builtins.formatting.shellharden]})

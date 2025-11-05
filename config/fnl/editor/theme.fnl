@@ -58,6 +58,8 @@
         :NormalSB {:fg colors.text :bg colors.surface-darker}
         :StatusLine {:fg colors.text :bg colors.surface-darker}
         :LineNr {:fg colors.text}
+        :LineNrAbove {:fg colors.text-dark}
+        :LineNrBelow {:fg colors.text-dark}
         :CursorLineNr {:fg colors.text :bg colors.surface-light}
         :CursorLine {:bg colors.surface-light}
         :EndOfBuffer {:fg colors.surface-lightest :bg colors.surface}

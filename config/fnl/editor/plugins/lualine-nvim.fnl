@@ -1,3 +1,5 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
 (import :editor.theme (colors highlight))
 (import/lua :lualine)
 
@@ -96,7 +98,6 @@
                                               :unnamed "󰡯"
                                               :newfile "󰎔"})
                                        (tset :separator {:left ""}))]}
-
                 :inactive_winbar {:lualine_a []
                                   :lualine_b []
                                   :lualine_c []

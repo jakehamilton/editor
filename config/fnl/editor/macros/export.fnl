@@ -1,4 +1,19 @@
+;; fennel-ls: macro-file
+
 (fn export [...]
+  "Export values from a module. Only one `export` call may be used in a module.
+
+```fennel
+(fn do-something []
+  ...)
+
+(local my-setting true)
+
+(export
+  do-something
+  my-setting :as setting)
+```
+  "
   (let [items [...]
         bindings {}]
     (var i 1)

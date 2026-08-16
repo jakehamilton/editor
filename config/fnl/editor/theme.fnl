@@ -1,6 +1,11 @@
-(import :editor.math (clamp))
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
+(import/macro :editor.macros.vim (vim-global vim-option))
+(import/macro :editor.macros.export (export))
+
 (import/lua :nvim-treesitter.configs :as nvim-treesitter)
 
+(import :editor.math (clamp))
 (fn hex-to-rgb [hex]
   (let [hex (hex:gsub "#" "")]
     (values (tonumber (hex:sub 1 2) 16) (tonumber (hex:sub 3 4) 16)

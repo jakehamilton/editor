@@ -1,3 +1,7 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
+(import/macro :editor.macros.vim (vim-global vim-option))
+
 (import :editor.keys (keymap))
 
 (vim-global :tmux_navigator_disable_when_zoomed 1)

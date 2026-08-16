@@ -1,3 +1,7 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
+(import/macro :editor.macros.export (export))
+
 (import/lua :which-key)
 
 (fn keymap-options [key options]

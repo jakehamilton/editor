@@ -1,3 +1,5 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
 (import/lua :cmp)
 (import/lua :luasnip)
 (import/lua :nvim-autopairs.completion.cmp :as nvim-autopairs-cmp)

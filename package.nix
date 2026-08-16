@@ -316,7 +316,7 @@
                       local content = f:read("*all")
                       f:close()
 
-                      local prepended = '(import-macros {: import : import/macro : import/lua} :editor.macros.import)\n(import-macros {: export } :editor.macros.export)\n(import-macros {: vim-option : vim-global} :editor.macros.vim)\n' .. content
+                      local prepended = '\n' .. content
                       return fennel.eval(prepended, vim.tbl_extend("force", compiler_options, {
                         filename = filename
                       }))

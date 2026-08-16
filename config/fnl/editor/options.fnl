@@ -1,3 +1,7 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
+(import/macro :editor.macros.vim (vim-global vim-option))
+
 ; Leader
 (vim-global :mapleader " ")
 (vim-global :maplocalleader ",")

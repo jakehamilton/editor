@@ -1,3 +1,7 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
+(import/macro :editor.macros.vim (vim-global vim-option))
+
 (import/lua :nvim-tree)
 (import/lua :nvim-tree.api)
 (import :editor.keys (keymap))

@@ -1,4 +1,19 @@
+;; fennel-ls: macro-file
+
 (fn import [module ?exposed]
+  "Import a Fennel module.
+
+```fennel
+(import :editor.math)
+(math.clamp ...)
+
+(import :editor.math (clamp))
+(clamp ...)
+
+(import :editor.math :as helpers)
+(helpers.clamp)
+```
+  "
   (assert-compile (or (list? ?exposed) (= nil ?exposed))
                   "Exposed imports must be specified as a list" ?exposed)
   (if (= nil ?exposed)
@@ -25,6 +40,19 @@
         `(local ,bindings (require ,module)))))
 
 (fn import/macro [module ?exposed]
+  "Import a Macro module.
+
+```fennel
+(import/macro :editor.macros.vim)
+(vim.vim-global ...)
+
+(import/macro :editor.macros.vim (vim-option))
+(vim-option ...)
+
+(import/macro :editor.macros.vim :as my-vim)
+(my-vim.vim-global ...)
+```
+  "
   (assert-compile (or (list? ?exposed) (= nil ?exposed))
                   "Exposed imports must be specified as a list" ?exposed)
   (if (= nil ?exposed)
@@ -51,6 +79,19 @@
         `(import-macros ,bindings ,module))))
 
 (fn import/lua [module ?as ?alias]
+  "Import a Lua module.
+
+```fennel
+(import :nvim-tree)
+(nvim-tree.setup ...)
+
+(import :nvim-tree (setup))
+(setup ...)
+
+(import :nvim-tree :as files)
+(files.setup)
+```
+  "
   (assert-compile (or (and (= nil ?as) (= nil ?alias))
                       (and (= :as ?as) (not= nil ?alias)))
                   "An alias must be provided with :as." ?alias)

@@ -1,3 +1,5 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
 (import :editor.keys (keymap))
 
 (var scratch-buf nil)

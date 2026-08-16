@@ -1,3 +1,7 @@
+(import-macros {: import : import/macro : import/lua} :editor.macros.import)
+
+(import/macro :editor.macros.vim (vim-global vim-option))
+
 (import :editor.keys (keymap))
 
 (keymap :<leader>bd :<cmd>BD<cr> {:desc "Delete Buffer"})

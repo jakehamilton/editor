@@ -148,9 +148,9 @@
                                               :includePackageJsonAutoImports :auto
                                               :includeInlayParameterNameHints :all
                                               :includeInlayFunctionLikeReturnTypeHints true
-                                              :includeInlayVariableTypeHints true
-                                              :includeInlayPropertyDeclarationTypeHints true
-                                              :includeInlayEnumMemberValueHints true
+                                              :includeInlayVariableTypeHints false
+                                              :includeInlayPropertyDeclarationTypeHints false
+                                              :includeInlayEnumMemberValueHints false
                                               :autoImportFileExcludePatterns [:**/dist/**
                                                                               :**/build/**
                                                                               :**/generated/**]
